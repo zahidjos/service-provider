@@ -1,46 +1,50 @@
 import React from 'react';
+import './Banner.css';
 import { Carousel } from 'react-bootstrap';
+import Baner1 from'../../image/baner (1).jpg';
+import Baner2 from'../../image/baner (2).jpg';
+import Baner3 from'../../image/baner (3).jpg';
 
 
 
 const Banner = () => {
    
     return (
-        <div>
-             <Carousel>
-  <Carousel.Item>
+        <div >
+             <Carousel className='banner_part'>
+  <Carousel.Item className='banner_item'>
     <img
       className="d-block w-100"
-      src="holder.js/800x400?text=First slide&bg=373940"
+      src={Baner1}
       alt="First slide"
     />
     <Carousel.Caption>
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      <h3>My service provides </h3>
+      <p>The basic electrical repairing services such as fixing the wiring system of fans, switches, fuses, lights, meters etc.</p>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src="holder.js/800x400?text=Second slide&bg=282c34"
+      src={Baner2}
       alt="Second slide"
     />
 
     <Carousel.Caption>
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <h3>My service provides</h3>
+      <p>The basic electrical repairing services such as fixing the wiring system of fans, switches, fuses, lights, meters etc.</p>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src="holder.js/800x400?text=Third slide&bg=20232a"
+      src={Baner3}
       alt="Third slide"
     />
 
     <Carousel.Caption>
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      <h3>My service provides </h3>
+      <p>The basic electrical repairing services such as fixing the wiring system of fans, switches, fuses, lights, meters etc.</p>
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>    
