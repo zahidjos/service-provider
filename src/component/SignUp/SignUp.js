@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../Service.fig';
 import './SignUp.css'
 import { useAuthState, useCreateUserWithEmailAndPassword,useUpdateProfile  } from 'react-firebase-hooks/auth';
@@ -10,12 +10,14 @@ import { useAuthState, useCreateUserWithEmailAndPassword,useUpdateProfile  } fro
 const SignUp = () => {
     const [
         createUserWithEmailAndPassword,
-        user1,
-        loading1,
-        error1,
+        usercreate,
+        loading,
+        error,
       ] = useCreateUserWithEmailAndPassword(auth,{sendEmailVerification:true});
-      const [updateProfile, updating, error2] = useUpdateProfile(auth);
-      const [user, loading, error] = useAuthState(auth);
+      const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+      const [user] = useAuthState(auth);
+      const navigate=useNavigate();
+     
 
     const handelSignUp=async(event)=>{
         event.preventDefault();
@@ -23,12 +25,24 @@ const SignUp = () => {
        let email=event.target.email.value;
        let password=event.target.password.value;
        
-       createUserWithEmailAndPassword(email,password);
-      await updateProfile(name);
-      console.log(user);
+     await  createUserWithEmailAndPassword(email,password);
+     await   updateProfile({displayName:name})
+       
 
 
+    } 
+    if(user)(
+        navigate('/')
+    )
+    
+    if(loading){
+      return  <p>Loading...</p>
     }
+if(updating){
+    return  <p>updating...</p>
+}
+
+
     return (
         <div className='signup_part'>
             <h1 className='text-center'> Sign up</h1>
@@ -58,6 +72,7 @@ const SignUp = () => {
   <Form.Group className="mb-3" controlId="formBasicCheckbox">
     <Form.Check type="checkbox" label="Check me out" />
   </Form.Group>
+  <h4>{error?error.message:""}</h4>
   <p>Already you have an account : <Link to={'/logIn'}>Please Log In</Link></p>
   <Button variant="primary" type="submit">
     Registration
