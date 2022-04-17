@@ -11,7 +11,7 @@ const Footer = () => {
     return (
         <div className='bg-dark footer_part'>
             <Container>
-            <div className='mx-auto' style={{width:"100px"}}><img className='w-100 img-fluid' src={logo} alt="" /></div>
+            
             <div className="row">
                 <div className="col-lg-3 col-md-6 ">
                     <h5>Servicing Hours</h5>
@@ -29,14 +29,14 @@ const Footer = () => {
                 <div className="col-lg-3 col-md-6">
                     <h4>Twetter feed</h4>
                     <ul>
-                        <li><FontAwesomeIcon icon={faCoffee} /> I want to introduce you to a new ess theme Service provider new press theme. This the new idea for theme, hope you will like. 24 July 2017</li>
-                        <li><FontAwesomeIcon icon={faCoffee} /> I want to introduce you to a new ess theme Service provider new press theme. This the new idea for theme, hope you will like. 24 July 2018</li>
+                        <li> I want to introduce you to a new ess theme Service provider new press theme. This the new idea for theme, hope you will like. 24 July 2017</li>
+                        <li>I want to introduce you to a new ess theme Service provider new press theme. This the new idea for theme, hope you will like. 24 July 2018</li>
                     </ul>
                 </div>
                 <div className="col-lg-3 col-md-6">
                     <h5>FLICKR PHOTOS</h5>
                     <div className="row">
-                        <div className="col-lg-4 col-md-4 col-sm-4">
+                        <div className="col-lg-4 col-md-4 col-sm-4 mb-2">
                             <img className='w-100 img-fluid' src={wire1} alt="" />
                         </div>
                         <div className="col-lg-4 col-md-4 col-sm-4">

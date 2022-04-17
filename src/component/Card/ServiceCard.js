@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const ServiceCard = (props) => {
   const navigate=useNavigate()
   const handelCheck=(serviceId)=>{
-       navigate(`/checkOut/:${serviceId}`);
+       navigate(`/checkOut/${serviceId}`);
   }
   const{name,id,about,image,price}=props.singleService
     return (
@@ -19,7 +19,7 @@ const ServiceCard = (props) => {
       {about}
     </Card.Text>
     <h6>Service Charge: {price}</h6>
-    <Button onClick={()=>handelCheck(id)} variant="primary">Check Out</Button>
+    <Button onClick={()=>handelCheck(about)} variant="primary">Check Out</Button>
   </Card.Body>
 </Card>
         </div>

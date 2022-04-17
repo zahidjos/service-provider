@@ -2,10 +2,11 @@
 
 import React, { useRef } from 'react';
 import { Button, Form, Toast } from 'react-bootstrap';
-import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../Service.fig';
 import Spiner from '../Spiner/Spiner';
+import google from '../../image/download (1).png'
 import './SignIn.css';
 
 const SignIn = () => {
@@ -39,6 +40,11 @@ const SignIn = () => {
        let passwordEmail=emailRef.current.value;
        await sendPasswordResetEmail(passwordEmail);
       }
+      const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+
+     
+     
+
       if(sending){
           return (
           <div className='w-50 mx-auto'>
@@ -57,7 +63,7 @@ const SignIn = () => {
         let from = location.state?.from?.pathname || "/";
         navigate(from,{replace:true});
       }
-      if(loading){
+      if(loading || googleLoading){
           return <Spiner></Spiner>
       }
       
@@ -81,7 +87,7 @@ const SignIn = () => {
     <Form.Label>Password</Form.Label>
     <Form.Control type="password" name='password' placeholder="Password" />
   </Form.Group>
-  <h4 className='text-danger'>{error?.message||resetError?.message|| ""}</h4>
+  <h4 className='text-danger'>{error?.message||resetError?.message||""}</h4>
  
   <p>Have you no account : <Link to={'/signUp'}>Please Registration</Link></p>
   
@@ -90,6 +96,8 @@ const SignIn = () => {
   </Button>
 </Form>
 <p>Forget Password: <button onClick={handelPassword} >Password reset now </button></p>
+
+<div className='google_part text-center'><button onClick={()=>signInWithGoogle()}> <img src={google} alt="" /> Google sign In</button></div>
         </div>
     );
 };

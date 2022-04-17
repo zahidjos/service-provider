@@ -2,3 +2,16 @@
     width: 50%;
     margin: 0 auto;
 }
+.google_part button{
+    background: #7f7fcc;
+    border-radius: 10px;
+    border: none;
+    padding: 5px 15px;
+    color: aliceblue;
+    font-weight: 700;
+    
+    font-size: 20px;
+}
+.google_part button img{
+    width: 30px;
+}

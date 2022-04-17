@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import CustomHook from '../CustomHook/CustomHook';
+import './CheckOut.css'
 
 const CheckOut = () => {
   const params=useParams();
+  console.log(params.serviceId)
+  
     return (
-        <div>
-          <h1>This is check out{params.serviceId}</h1>  
+        <div className='checkout_part'>
+          <h5>{params.serviceId}</h5> 
+           
         </div>
     );
 };
