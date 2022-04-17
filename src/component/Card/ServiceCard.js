@@ -1,8 +1,13 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
+import { useNavigate } from 'react-router-dom';
 
 const ServiceCard = (props) => {
+  const navigate=useNavigate()
+  const handelCheck=(serviceId)=>{
+       navigate(`/checkOut/:${serviceId}`);
+  }
   const{name,id,about,image,price}=props.singleService
     return (
         <div className='col-lg-4 col-md-6 mt-2'>
@@ -14,7 +19,7 @@ const ServiceCard = (props) => {
       {about}
     </Card.Text>
     <h6>Service Charge: {price}</h6>
-    <Button variant="primary">Check Out</Button>
+    <Button onClick={()=>handelCheck(id)} variant="primary">Check Out</Button>
   </Card.Body>
 </Card>
         </div>
