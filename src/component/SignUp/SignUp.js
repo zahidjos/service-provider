@@ -3,7 +3,8 @@ import { Button, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../Service.fig';
 import './SignUp.css'
-import { useAuthState, useCreateUserWithEmailAndPassword,useUpdateProfile  } from 'react-firebase-hooks/auth';
+import { useAuthState, useCreateUserWithEmailAndPassword,useSignInWithGoogle,useUpdateProfile  } from 'react-firebase-hooks/auth';
+import google from '../../image/download (1).png'
 
 
 
@@ -17,6 +18,7 @@ const SignUp = () => {
       const [updateProfile, updating, updateError] = useUpdateProfile(auth);
       const [user] = useAuthState(auth);
       const navigate=useNavigate();
+      const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
      
 
     const handelSignUp=async(event)=>{
@@ -78,7 +80,9 @@ if(updating){
     Registration
   </Button>
 </Form>
+<div className='google_part text-center'><button onClick={()=>signInWithGoogle()}> <img src={google} alt="" /> Google sign In</button></div>
         </div>
+        
     );
 };
 

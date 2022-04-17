@@ -1,0 +1,12 @@
+.about_part{
+    padding: 50px 30px;
+    text-align: center;
+}
+.about_part p{
+    font-size: 18px;
+}
+.image_part{
+    width: 200px;
+    margin:10px auto;
+    
+}
